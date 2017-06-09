@@ -1,0 +1,54 @@
+﻿extends layout
+
+block content
+   
+    .body(ng-controller="instructor")       
+        .instructorlist   
+                h1 Instructor list      
+                label Search:
+                input(ng-model="searchText")
+                a(href='/newinstructor') Add a new instructor
+                ul.head
+                    li 
+                       label Name
+                    li 
+                       label Age
+                    li 
+                       label Class
+                    li 
+                       label DOB
+                ul.body(ng-repeat="mongo_result in ilists | filter:searchText")
+                    li
+                        |{{mongo_result.name}}
+                    li
+                        |{{mongo_result.age}}
+                    li
+                        |{{mongo_result.DOB | date:'MM-dd, yyyy'}}
+                    li
+                        |{{mongo_result.dateofstart | date:'MM-dd, yyyy' }}
+                   
+                    button.btn-primary(type="button" data-id="{{$index}}" class="detailbutton" ng-click="detail_instructor($index)") Detail
+                    button.btn-danger(type="button" data-value="{{mongo_result._id}}" confirmed-click="delete($index)" ng-confirm-click="Are you sure to delete this instructor? name: {{mongo_result.name}}") Delete
+        .addablestudent(ng-show="editBoolean")
+            ul.head
+                li 
+                    label Name
+                li 
+                    label Age
+                li 
+                    label Class
+                li 
+                    label DOB
+            ul.body(ng-repeat="result in selectedstudents | filter:searchText")
+                li
+                    |{{result.name}}
+                li
+                    |{{result.age}}
+                li
+                    |{{result.DOB | date:'MM-dd, yyyy'}}
+                li
+                    |{{result.dateofstart | date:'MM-dd, yyyy' }}
+                li
+                    button.btn-primary(type="button" data-id="{{$index}}" class="detailbutton" ng-click="detail($index)") Detail
+                li 
+              

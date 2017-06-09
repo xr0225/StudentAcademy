@@ -1,0 +1,40 @@
+﻿extends layout
+
+block content
+    h1 Instructor Details
+     .detail
+        table.table.table-bordered
+            thead
+                tr
+                    th Name
+                    th Age
+                    th DOB
+                    th Gender
+                    th Email
+                    th Phone
+                    th Address
+                    th StartDate                                  
+            tbody(ng-controller='detail_instructor')                 
+                    tr(ng-repeat='result in instructordetail')
+                       td 
+                           |{{result.name}}
+                       td
+                           |{{result.age}}
+                       td
+                           |{{result.DOB | date:'MM-dd, yyyy'}}
+                       td
+                           |{{result.gender}}
+                       td
+                           |{{result.email}}
+                       td
+                           |{{result.phone}}
+                       td
+                           |{{result.address}}   
+                       td
+                           |{{result.dateofstart | date:'MM-dd, yyyy'}}                          
+                       td
+                           button.btn-primary(type="button" ng-click="edit(result._id)") Edit
+            
+            a(href="/instructor" id="back") go back to the list
+        
+     

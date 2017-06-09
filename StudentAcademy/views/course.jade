@@ -1,0 +1,25 @@
+﻿extends layout
+
+block content   
+    .studentlist    
+        h1 Course list    
+        label Search:
+            input(ng-model="searchText")            
+        div(ng-controller="course")
+            a(href='/newcourse') Add a new course
+            ul.head
+                li 
+                   label Course Name
+                li 
+                   label Course Number               
+            ul.body(ng-repeat="mongo_result in clist | filter:searchText")
+                li
+                    |{{mongo_result.coursename}}
+                li
+                    |{{mongo_result.coursenumber}}               
+                li
+                    button.btn-primary(type="button" data-id="{{$index}}" class="detailbutton" ng-click="detail_course($index)") Detail
+                li 
+                    button.btn-danger(type="button" data-value="{{mongo_result._id}}" confirmed-click="delete($index)" ng-confirm-click="Are you sure to delete this course? name: {{mongo_result.coursename}}") Delete
+           
+                    

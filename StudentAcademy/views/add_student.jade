@@ -1,0 +1,31 @@
+﻿extends layout
+
+block content   
+    .studentlist(ng-controller="student")  
+        h1 Student list    
+        label Search:
+        input(ng-model="searchText")           
+        div(ng-repeat="mongo_result in slist | filter:searchText")
+            ul.head
+                li 
+                   input(type="checkbox" name="{{mongo_result.name}}")
+                li 
+                   label Name
+                li 
+                   label Age
+                li 
+                   label Class
+                li 
+                   label DOB
+            ul.body
+                li
+                    |{{mongo_result.name}}
+                li
+                    |{{mongo_result.age}}
+                li
+                    |{{mongo_result.class}}
+                li
+                    |{{mongo_result.DOB | date:'MM-dd, yyyy' }}
+                
+           
+                    

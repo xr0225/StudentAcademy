@@ -1,0 +1,24 @@
+﻿extends layout
+
+block content
+  form(action='/newcourse', method="POST", name="Form" ng-controller='newcourse')
+    input(type="text" placeholder="course name" name="coursename" class="form-control" autocomplete="off" required)
+    input(type="text" placeholder="course number" name="coursenumber" class="form-control" autocomplete="off" required)
+    br
+    label Credit:
+    select(name='coursecredit')
+        -for(var i = 1;i<10;i++){
+            option(value="#{i}") #{i}
+        -}
+    br
+    label Instuctor:
+    select(name='iname')      
+        option(ng-repeat='result in dropdown' value='{{result.name}}') {{result.name}}
+    div        
+        input(type="radio" name="role" value="instructor" checked=gender=="instructor")
+        | Instructor
+        input(type="radio" name="role" value="TA" checked=gender=="TA")
+        | TA
+    input(type="text" placeholder="Room number" name="room" class="form-control" autocomplete="off" required)
+    button.btn-primary(type="submit") Submit
+    

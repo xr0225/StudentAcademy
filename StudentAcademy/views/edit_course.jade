@@ -1,0 +1,31 @@
+﻿extends layout
+
+block content
+   
+     .edit   
+        h1 Edit instructor information                      
+        form(ng-controller='edit_course' name="Form" method='POST' action='/editcourse')   
+            div
+                label Database_ID
+                input(type="text" placeholder="ObjectID" name="_id" class="form-control" autocomplete="off" value="{{edit_cour._id}}" readonly)             
+            div
+                label Course Name:
+                input(type="text" placeholder="coursename" name="coursename" class="form-control" autocomplete="off" value="{{edit_cour.coursename}}" required) 
+            div
+                label Course Number:
+                input(type="text" placeholder="coursenumber" name="coursenumber" class="form-control" min="0" max="99" value="{{edit_cour.coursenumber}}" autocomplete="off" required)  
+            div
+                label Course Credit:
+                input(type="text" placeholder="coursecredit" name="coursecredit" class="form-control" min="0" max="99" value="{{edit_cour.coursecredit}}" autocomplete="off" required)                       
+            div
+                label Course Room:
+                input(type="text" placeholder="courseroom" name="courseroom" class="form-control" autocomplete="off" value="{{edit_cour.courseroom}}" required)    
+            div
+                label Date of Registration:
+                input(type="text" placeholder="dateofstart" name="courseregisteddate" class="form-control" autocomplete="off" value="{{edit_cour.courseregisteddate | date:'MM-dd, yyyy'}}" readonly)
+            div
+                button.btn-primary(type="submit") Complete
+            br 
+      
+        
+     

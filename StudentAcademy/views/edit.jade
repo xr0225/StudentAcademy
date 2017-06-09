@@ -1,0 +1,42 @@
+﻿extends layout
+
+block content
+   
+     .edit   
+        h1 Edit student information                      
+        form(ng-controller='edit' name="Form" method='POST' action='/editstudent')   
+            div
+                label Database_ID
+                input(type="text" placeholder="ObjectID" name="_id" class="form-control" autocomplete="off" value="{{edits._id}}" readonly)             
+            div
+                label Name:
+                input(type="text" placeholder="name" name="name" class="form-control" autocomplete="off" value="{{edits.name}}" required) 
+            div
+                label Age:
+                input(type="text" placeholder="age" name="age" class="form-control" min="0" max="99" value="{{edits.age}}" autocomplete="off" required)                       
+            div
+                label Gender:
+                input(type="text" placeholder="gender" name="gender" class="form-control" autocomplete="off" value="{{edits.gender}}" required)
+            div
+                label Email:
+                input(type="email" placeholder="email" name="email" class="form-control" autocomplete="off" value="{{edits.email}}" required)
+            div
+                label phone:
+                input(type="text" placeholder="phone" name="phone" class="form-control" autocomplete="off" value="{{edits.phone}}" required)
+            div
+                label Address:
+                input(type="text" placeholder="address" name="address" class="form-control" autocomplete="off" value="{{edits.address}}" required)
+            div
+                label Parents:
+                input(type="text" placeholder="Parents name" name="parents[name]" class="form-control" autocomplete="off" value="{{edits.parents.name}}" required)
+                input(type="text" placeholder="Parents phone" name="parents[phone]" class="form-control" autocomplete="off" value="{{edits.parents.phone}}" required)
+                input(type="text" placeholder="Parents email" name="parents[email]" class="form-control" autocomplete="off" value="{{edits.parents.email}}" required)                       
+            div
+                label Class:
+                input(type="text" placeholder="class" name="class" class="form-control" autocomplete="off" value="{{edits.class}}" required)
+            div
+                button.btn-primary(type="submit") Complete
+            br 
+      
+        
+     

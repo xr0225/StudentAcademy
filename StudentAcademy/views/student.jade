@@ -1,0 +1,34 @@
+﻿extends layout
+
+block content   
+    .studentlist(ng-controller="student")  
+        h1 Student list    
+        label Search:
+        input(ng-model="searchText")
+        br
+        a(href='/newstudent') Add a new instructor             
+        div
+            ul.head
+                li 
+                   label Name
+                li 
+                   label Age
+                li 
+                   label Class
+                li 
+                   label DOB
+            ul.body(ng-repeat="mongo_result in slist | filter:searchText")
+                li(data-id="{{$index}}")
+                    |{{mongo_result.name}}
+                li(data-id="{{$index}}")
+                    |{{mongo_result.age}}
+                li(data-id="{{$index}}")
+                    |{{mongo_result.class}}
+                li(data-id="{{$index}}")
+                    |{{mongo_result.DOB | date:'MM-dd, yyyy' }}
+                li
+                    button.btn-primary(type="button" data-id="{{$index}}" class="detailbutton" ng-click="detail($index)") Detail
+                li 
+                    button.btn-danger(type="button" data-value="{{mongo_result._id}}" confirmed-click="delete($index)" ng-confirm-click="Are you sure to delete this student? name: {{mongo_result.name}}") Delete
+           
+                    

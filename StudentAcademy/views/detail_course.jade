@@ -1,0 +1,39 @@
+﻿extends layout
+
+block content
+    h1 Course Details
+     .detail(ng-controller='detail_course') 
+        table.table.table-bordered
+            thead
+                tr
+                    th Course Name
+                    th Course Number
+                    th Course Credit
+                    th Course Room
+                    th Course R-date                              
+            tbody                
+                    tr(ng-repeat='result in coursedetail')
+                       td 
+                           |{{result.coursename}}
+                       td
+                           |{{result.coursenumber}}                     
+                       td
+                           |{{result.coursecredit}}
+                       td
+                           |{{result.courseroom}}
+                       td
+                           |{{result.courseregisteddate | date:'MM-dd, yyyy'}}                         
+                       td
+                           button.btn-primary(ng-click="edit(result._id)") Edit
+                    tr(ng-repeat='s_result in student')
+                       td 
+                           |{{s_result.name}}
+                       td
+                           |{{s_result.age}}                     
+                       td
+                           |{{s_result.coursecredit}}    
+                    button.btn-primary(ng-click="adding()") Add a student
+                    br
+                    a(href="/course" id="back") go back to the list
+        
+     

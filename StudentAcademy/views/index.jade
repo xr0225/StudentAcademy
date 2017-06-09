@@ -1,0 +1,28 @@
+﻿extends layout
+
+block content
+  form(action='/students', method="POST", name="Form")
+    input(type="text" placeholder="name" name="name" class="form-control" autocomplete="off" required)
+    input(type="number" placeholder="age" name="age" class="form-control" min="0" max="99" autocomplete="off" required)
+    div
+        input(type="radio" name="gender" value="Male" checked=gender=="male")
+        | Male
+        input(type="radio" name="gender" value="Female" checked=gender=="female")
+        | Female
+    input(type="email" placeholder="Email" name="email" class="form-control" autocomplete="off" required)
+    input(type="date" ng-model="dateString" placeholder="DOB" name="DOB" class="form-control" required)
+    input(type="number" placeholder="Phone" name="phone" 
+           ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/" 
+            class="form-control" autocomplete="off" required)
+    input(type="text" placeholder="Address" name="address" class="form-control" autocomplete="off" required)
+    input(type="text" placeholder="Parents.name" name="parents[name]" class="form-control" autocomplete="off")
+    input(type="number" placeholder="Parents.phone" name="parents[phone]" class="form-control" autocomplete="off") 
+    input(type="text" placeholder="Parents.email" name="parents[email]" class="form-control" autocomplete="off")       
+    select.form-control(type="text" name="class")
+        option A
+        option B
+        option C
+        option D
+
+    button.btn-primary(type="submit") Submit
+  

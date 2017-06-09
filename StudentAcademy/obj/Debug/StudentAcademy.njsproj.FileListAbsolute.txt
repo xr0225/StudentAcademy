@@ -1,0 +1,1 @@
+c:\users\chiseong\documents\visual studio 2015\Projects\StudentAcademy\StudentAcademy\bin\Microsoft.NodejsTools.WebRole.dll

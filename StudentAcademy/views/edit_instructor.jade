@@ -1,0 +1,45 @@
+﻿extends layout
+
+block content
+   
+     .edit   
+        h1 Edit instructor information                      
+        form(ng-controller='edit_instructor' name="Form" method='POST' action='/editinstructor')   
+            div
+                label Database_ID
+                input(type="text" placeholder="ObjectID" name="_id" class="form-control" autocomplete="off" value="{{edit_ins._id}}" readonly)             
+            div
+                label Name:
+                input(type="text" placeholder="name" name="name" class="form-control" autocomplete="off" value="{{edit_ins.name}}" required) 
+            div
+                label Age:
+                input(type="text" placeholder="age" name="age" class="form-control" min="0" max="99" value="{{edit_ins.age}}" autocomplete="off" required)  
+            div
+                label DOB:
+                input(type="text" placeholder="age" name="DOB" class="form-control" min="0" max="99" value="{{edit_ins.DOB |  date:'MM-dd, yyyy'}}" autocomplete="off" required)                       
+            div
+                label Gender:
+                input(type="text" placeholder="gender" name="gender" class="form-control" autocomplete="off" value="{{edit_ins.gender}}" required)
+            div
+                label Email:
+                input(type="email" placeholder="email" name="email" class="form-control" autocomplete="off" value="{{edit_ins.email}}" required)
+            div
+                label phone:
+                input(type="text" placeholder="phone" name="phone" class="form-control" autocomplete="off" value="{{edit_ins.phone}}" required)
+            div
+                label Address:
+                input(type="text" placeholder="address" name="address" class="form-control" autocomplete="off" value="{{edit_ins.address}}" required)
+            div
+                label Courses:
+                input(type="text" placeholder="Parents name" name="parents[name]" class="form-control" autocomplete="off" value="{{edit_ins.parents.name}}" required)
+                input(type="text" placeholder="Parents phone" name="parents[phone]" class="form-control" autocomplete="off" value="{{edit_ins.parents.phone}}" required)
+                input(type="text" placeholder="Parents email" name="parents[email]" class="form-control" autocomplete="off" value="{{edit_ins.parents.email}}" required)                       
+            div
+                label Date of Start:
+                input(type="text" placeholder="dateofstart" name="dateofstart" class="form-control" autocomplete="off" value="{{edit_ins.dateofstart | date:'MM-dd, yyyy'}}" required)
+            div
+                button.btn-primary(type="submit") Complete
+            br 
+      
+        
+     

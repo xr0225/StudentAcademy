@@ -1,0 +1,40 @@
+﻿extends layout
+
+block content
+    h1 Student Details
+     .detail
+        table.table.table-bordered
+            thead
+                tr
+                    th Name
+                    th Age
+                    th Gender
+                    th Email
+                    th Phone
+                    th Address
+                    th Parents
+                    th Class                    
+            tbody(ng-controller='detail')                 
+                    tr(ng-repeat='result in details')
+                       td 
+                           |{{result.name}}
+                       td
+                           |{{result.age}}
+                       td
+                           |{{result.gender}}
+                       td
+                           |{{result.email}}
+                       td
+                           |{{result.phone}}
+                       td
+                           |{{result.address}}
+                       td
+                           |{{result.parents.name}} {{result.parents.phone}} {{result.parents.email}}
+                       td
+                           |{{result.class}}
+                       td
+                           button.btn-primary(type="button" ng-click="edit(result._id)") Edit
+            
+            a(href="/student" id="back") go back to the list
+        
+     
